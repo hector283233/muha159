@@ -1,0 +1,367 @@
+{% extends "base_ru.html" %}
+{% load static %}
+
+{% block content %}
+
+{% for content in page_content %}
+  <!--------------- This is code for carusel ------------------>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+
+      <div class="carousel-item active" style="background-image: url({{ content.img_slide1.url }})">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">
+          		{{content.text_slide1}}
+          </h3>
+          <p class="lead">{{content.description_slide1}}</p>
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image: url({{ content.img_slide2.url }})">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">
+          	{{content.text_slide2}}
+          </h3>
+          <p class="lead">{{ content.description_slide2 }}</p>
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image: url({{ content.img_slide3.url }})">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">
+          	{{content.text_slide3}}
+          </h3>
+          <p class="lead">{{content.description_slide3}}</p>
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image: url({{ content.img_slide4.url }})">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">
+          	{{content.text_slide4}}
+          </h3>
+          <p class="lead">{{content.description_slide4}}</p>
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image: url({{ content.img_slide5.url }})">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">
+          	{{content.text_slide5}}
+          </h3>
+          <p class="lead">{{content.description_slide5}}</p>
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image: url({{ content.img_slide6.url }})">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">
+          	{{content.text_slide6}}
+          </h3>
+          <p class="lead">{{content.description_slide6}}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+  </div>
+  <!--------------- End of carusel ------------------------------------------->
+
+
+
+<!-- <img src="{{ content.img_slide1.url }}"> -->
+
+  <!-- This is Jumbotron -->
+
+ <div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+        	<div class="container">
+                <div>
+					<h1 class="card-title text-center pt-3 mb-5 font-bold"><strong>{{ content.company_name }}</strong></h1>
+                    <p class="mx-5 mb-5 text-center">{{content.about_company}}</p>
+            	</div>
+        	</div>
+    	</div>
+	</div>
+</div>
+  <!-- The End of the Jumotron -->
+
+
+  <!--------------- PAGE CONTENT ------------->
+
+	  <!---------- COMPANY PRODUCT CATEGORIES ------------>
+	  <div class="container">
+	  	<div class="row">
+
+	  		<!-- 1st card  -->
+	  		<div class="col-xl-4 col-md-6 mb-4">
+	  			<div class="card border-0 shadow">
+	  				<a href="/products_demirgapylar" class="text-reset text-decoration-none">
+	  					
+	  					<div class="hovereffect">
+							{% for product in productsDG %}
+	  							<img class="img-responsive img-fluid" src="{{product.product_image.url}}" alt=""/>
+	  						{% endfor %}
+	  					</div>
+
+			            <div class="card-body text-center">
+			                <h5 class="card-title mb-0">
+			                	Железные Двери       	
+			                </h5>
+			                <div class="card-text text-black-50">Двери из Железа</div>
+			            </div>     
+	  				</a>
+	  			</div>
+	  		</div>
+	  		<!-- End of 1st card -->
+
+	  	  	<!-- 2nd card  -->
+	  		<div class="col-xl-4 col-md-6 mb-4">
+	  			<div class="card border-0 shadow">
+	  				<a href="/products_agacgapylar" class="text-reset text-decoration-none">
+	  					
+	  					<div class="hovereffect">
+	  						{% for product in productsAG %}
+	  							<img class="img-responsive img-fluid" src="{{product.product_image.url}}" alt=""/>
+	  						{% endfor %}
+	  					</div>
+
+			            <div class="card-body text-center">
+			                <h5 class="card-title mb-0">Деревянные Двери</h5>
+			                <div class="card-text text-black-50">Двери из Деревя</div>
+			            </div>     
+	  				</a>
+	  			</div>
+	  		</div>
+			<!-- End of 2nd card -->
+
+	  	  	<!-- 3rd card  -->
+	  		<div class="col-xl-4 col-md-6 mb-4">
+	  			<div class="card border-0 shadow">
+	  				<a href="/products_mebeller" class="text-reset text-decoration-none">
+	  					
+	  					<div class="hovereffect">
+	  						{% for product in productsMB %}
+	  							<img class="img-responsive img-fluid" src="{{product.product_image.url}}" alt=""/>
+	  						{% endfor %}
+	  					</div>
+
+			            <div class="card-body text-center">
+			                <h5 class="card-title mb-0">Мебели</h5>
+			                <div class="card-text text-black-50">Саьые Разные Мебели</div>
+			            </div>     
+	  				</a>
+	  			</div>
+	  		</div>
+			<!-- End of 3rd card -->
+
+	  	  	<!-- 4th card  -->
+	  		<div class="col-xl-4 col-md-6 mb-4">
+	  			<div class="card border-0 shadow">
+	  				<a href="/products_demironumler" class="text-reset text-decoration-none">
+	  					
+	  					<div class="hovereffect">
+	  						{% for product in productsDO %}
+	  							<img class="img-responsive img-fluid" src="{{product.product_image.url}}" alt=""/>
+	  						{% endfor %}
+	  					</div>
+
+			            <div class="card-body text-center">
+			                <h5 class="card-title mb-0">Железные Изделия</h5>
+			                <div class="card-text text-black-50">Разные Железные Изделия</div>
+			            </div>     
+	  				</a>
+	  			</div>
+	  		</div>
+			<!-- End of 4th card -->
+
+	  	  	<!-- 5th card  -->
+	  		<div class="col-xl-4 col-md-6 mb-4">
+	  			<div class="card border-0 shadow">
+	  				<a href="/products_beylekiler" class="text-reset text-decoration-none">
+	  					
+	  					<div class="hovereffect">
+	  						{% for product in productsBK %}
+	  							<img class="img-responsive img-fluid" src="{{product.product_image.url}}" alt=""/>
+	  						{% endfor %}
+	  					</div>
+
+			            <div class="card-body text-center">
+			                <h5 class="card-title mb-0">Другие</h5>
+			                <div class="card-text text-black-50">Другие Продукции</div>
+			            </div>     
+	  				</a>
+	  			</div>
+	  		</div>
+			<!-- End of 5th card -->
+
+	  	  	<!-- 6th card  -->
+	  		<div class="col-xl-4 col-md-6 mb-4">
+	  			<div class="card border-0 shadow">
+	  				<a href="products" class="text-reset text-decoration-none">
+	  					
+	  					<div class="hovereffect">
+	  						<img class="img-responsive img-fluid" src="{% static 'furnitures/images/furniture_image.jpg' %}" alt="">
+	  					</div>
+
+			            <div class="card-body text-center">
+			                <h5 class="card-title mb-0">MARU-AGOS</h5>
+			                <div class="card-text text-black-50">Все продукты компании</div>
+			            </div>     
+	  				</a>
+	  			</div>
+	  		</div>
+			<!-- End of 6th card -->
+
+	  	</div>
+	  </div>
+	  <!---------- END COMPANY PRODUCT CATEGORIES ------------>
+
+
+<hr>
+
+
+	  <!---------- COMPANY PROPERTIES ------------>
+	  <div class="container">
+	  	<div class="row text-dark">
+
+	  		<!-- Property 1 -->
+	  			<div class="col-md-4">
+	  				<div class="card border-0 card-shadow mb-4">
+	  					<div class="card-body text-center">
+	  						<div class="my-3">
+	  							<span style="font-size:48px; color:Dodgerblue;">
+	  								<i class="fas fa-thumbs-up"></i>
+	  							</span>
+	  						</div>
+	  						<h6 class="font-weight-medium">Высокое Качество</h6>
+	  						<p class="mt-3">1{{content.text_property1}}</p>
+	  					</div>
+	  				</div>
+	  			</div>
+	  		<!-- End Property 1 -->
+
+	  		<!-- Property 2 -->
+	  			<div class="col-md-4">
+	  				<div class="card border-0 card-shadow mb-4">
+	  					<div class="card-body text-center">
+	  						<div class="my-3">
+	  							<span style="font-size:48px; color:Dodgerblue;">
+	  								<i class="fas fa-coins"></i>
+	  							</span>
+	  						</div>
+	  						<h6 class="font-weight-medium">Разумные Цены</h6>
+	  						<p class="mt-3">2{{content.text_property2}}</p>
+	  					</div>
+	  				</div>
+	  			</div>
+	  		<!-- End Property 2 -->
+
+	  		<!-- Property 3 -->
+	  			<div class="col-md-4">
+	  				<div class="card border-0 card-shadow mb-4">
+	  					<div class="card-body text-center">
+	  						<div class="my-3">
+	  							<span style="font-size:48px; color:Dodgerblue;">
+	  								<i class="fas fa-people-carry"></i>
+	  							</span>
+	  						</div>
+	  						<h6 class="font-weight-medium">Доставка</h6>
+	  						<p class="mt-3">3{{content.text_property3}}</p>
+	  					</div>
+	  				</div>
+	  			</div>
+	  		<!-- End Property 3 -->
+
+	  	</div>
+	  </div>
+	  <!--------- END COMPANY PROPERTIES ------------>
+
+	  	<!-- NEW PRODUCTS -->
+		<div class="container">
+
+		  <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0 text-success"><p class="text-center">Продукции</p></h1>
+
+		  <hr class="mt-2 mb-5">
+
+		  <div class="row text-center text-lg-left">
+
+		    <div class="col-md-3 col-6 text-center">
+		      <a href="products" class="d-block mb-4 h-100 text-reset text-decoration-none">
+		            <img class="img-fluid img-thumbnail" src="{% static 'furnitures/images/furniture_image.jpg' %}" alt="">
+		            <p class="card-title mb-0">Двери</p>
+		          </a>
+		    </div>
+		    <div class="col-md-3 col-6 text-center">
+		      <a href="products" class="d-block mb-4 h-100 text-reset text-decoration-none">
+		            <img class="img-fluid img-thumbnail" src="{% static 'furnitures/images/furniture_image.jpg' %}" alt="">
+		            <p class="card-title mb-0">Шкафы</p>
+		          </a>
+		    </div>
+		    <div class="col-md-3 col-6 text-center">
+		      <a href="products" class="d-block mb-4 h-100 text-reset text-decoration-none">
+		            <img class="img-fluid img-thumbnail" src="{% static 'furnitures/images/furniture_image.jpg' %}" alt="">
+		            <p class="card-title mb-0">Кухня</p>
+		          </a>
+		    </div>
+		    <div class="col-md-3 col-6 text-center">
+		      <a href="products" class="d-block mb-4 h-100 text-reset text-decoration-none">
+		            <img class="img-fluid img-thumbnail" src="{% static 'furnitures/images/furniture_image.jpg' %}" alt="">
+		            <p class="card-title mb-0">Зеркола</p>
+		          </a>
+		    </div>
+		    <div class="col-md-3 col-6 text-center">
+		      <a href="products" class="d-block mb-4 h-100 text-reset text-decoration-none">
+		            <img class="img-fluid img-thumbnail" src="{% static 'furnitures/images/furniture_image.jpg' %}" alt="">
+		            <p class="card-title mb-0">Диваны</p>
+		          </a>
+		    </div>
+		    <div class="col-md-3 col-6 text-center">
+		      <a href="products" class="d-block mb-4 h-100 text-reset text-decoration-none">
+		            <img class="img-fluid img-thumbnail" src="{% static 'furnitures/images/furniture_image.jpg' %}" alt="">
+		            <p class="card-title mb-0">Тембочки</p>
+		          </a>
+		    </div>
+		    <div class="col-md-3 col-6 text-center">
+		      <a href="products" class="d-block mb-4 h-100 text-reset text-decoration-none">
+		            <img class="img-fluid img-thumbnail" src="{% static 'furnitures/images/furniture_image.jpg' %}" alt="">
+		            <p class="card-title mb-0">Современные</p>
+		          </a>
+		    </div>
+		    <div class="col-md-3 col-6 text-center">
+		      <a href="products" class="d-block mb-4 h-100 text-reset text-decoration-none">
+		            <img class="img-fluid img-thumbnail" src="{% static 'furnitures/images/furniture_image.jpg' %}" alt="">
+		            <p class="card-title mb-0">Офис</p>
+		          </a>
+		    </div>
+		    
+		  </div>
+
+		</div>
+	  	<!-- END NEW PRODUCTS -->
+
+  <!------------- END PAGE CONTENT ----------->
+
+{%endfor %}
+
+{% endblock content %}

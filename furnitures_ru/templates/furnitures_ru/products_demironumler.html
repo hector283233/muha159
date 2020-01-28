@@ -1,0 +1,48 @@
+{% extends "base_ru.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+	<div class="col-12">
+		<h1 class="display-4 text-center text-uppercase">Железные Изделия</h1>
+		<hr>
+	</div>
+
+
+
+	{% for group in groups %}
+		<div class="row">
+
+			<div class="col-12">
+				<h1 class="display-4 text-center">{{group.group_name}}</h1>
+				<hr>
+			</div>
+			
+			{% for product in productsDO %}
+				{% if group.id == product.product_group.id %}
+					<div class="col-xl-3 col-md-6 mb-4">
+
+					     <div class="card border-1 shadow">	
+					      <div class="hovereffect">
+					        <img class="img-responsive img-fluid align-middle" src="{{product.product_image.url}}" alt="">
+					      </div>
+
+					      <div class="card-body text-center">
+					          <h5 class="card-title mb-0">
+					          		{% if product.is_new == 1 %}
+					          			<span class="badge badge-success">НОВОЕ</span>
+					          		{% endif %}
+					          	{{product.product_name}}</h5>
+					      </div>
+						</div>
+
+					</div>
+				{% endif %}	
+			{% endfor %}
+		</div>
+	{% endfor %}
+</div>
+
+{% endblock content %}
